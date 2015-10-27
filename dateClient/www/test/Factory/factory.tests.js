@@ -1,6 +1,11 @@
-describe('Friends Unit Tests', function(){
-  var Friends;
-  beforeEach(module('dateClient.services'));
+describe('Factory Unit Tests', function(){
+  beforeEach(module('dateworthy.services'));
+
+  beforeEach(module(function ($provide) {
+    $provide.value('$cordovaGeolocation', {
+        someVariable: 1
+    });
+  }));
 
   it('can append active tags and get all tags', inject(function(DateData) {
     DateData.appendTags({"dateGenre": "Romantic", "noiseLevel": "Quiet"})
@@ -14,7 +19,11 @@ describe('Friends Unit Tests', function(){
 
   it('can get and set date ideas', inject(function(DateData) {
     DateData.setDateIdeas({Idea:"Fish"})
-    expect(DateData.getDateIdeas()).toEqual({Idea:"Fish"});
+    var newIdeas = "foo";
+    DateData.getDateIdeas(function(ideas) {
+      newIdeas = ideas;
+    });
+    expect(newIdeas).toEqual({Idea:"Fish"});
   }));
 
   it('can get getConcatenatedData', inject(function(DateData) {

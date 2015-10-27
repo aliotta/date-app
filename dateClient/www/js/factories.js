@@ -1,4 +1,4 @@
-angular.module('dateClient.services', [])
+angular.module('dateworthy.services', [])
 .factory('FindADate', function ($http, $location, $window) {
   return {
     // you need to convert the tags object into an array.
@@ -131,8 +131,8 @@ angular.module('dateClient.services', [])
     setDateIdeas: function (ideas){
       this.dateIdeas = ideas;
     },
-    getDateIdeas: function (){
-      return this.dateIdeas;
+    getDateIdeas: function (callback){
+      callback(this.dateIdeas);
     },
     getConcatenatedData: function () {
       var data = UserData.getUserData();
@@ -156,7 +156,7 @@ angular.module('dateClient.services', [])
 
   };
 })
-.factory('Auth', function ($http, $location, $ionicPlatform){
+.factory('Auth', function ($http, $location){
   return {
     login: function(obj, callback) {
       return $http({
