@@ -40,7 +40,7 @@
 //
 // NOTE: I struggle to translate this kind of test plan into BDD style tests.
 // E.g. what am I "describing", and what should "it" do?? Help welcome! =)
-//
+// 
 
 
 var expect = require('chai').expect;
