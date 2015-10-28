@@ -48,6 +48,7 @@ var expect = require('chai').expect;
 var errors = require('../../models/errors');
 var User = require('../../models/user');
 var Tag = require('../../models/tag');
+var db = require('../../models/db');
 
 
 // Shared state:
@@ -198,6 +199,46 @@ function expectUsernameTakenValidationError(err, username) {
 // Tests:
 
 describe('User models:', function () {
+
+    before(function (done) {
+       db.createConstraint({
+           label: 'Tag',
+           property: 'tagname',
+       }, function (err, constraint) {
+           if (err) throw err;     // Failing fast for now, by crash the application.
+           if (constraint) {
+           } else {
+               // Constraint already present; no need to log anything.
+           }
+           done();
+       })
+    })
+    before(function (done) {
+       db.createConstraint({
+           label: 'Event',
+           property: 'eventname',
+       }, function (err, constraint) {
+           if (err) throw err;     // Failing fast for now, by crash the application.
+           if (constraint) {
+           } else {
+               // Constraint already present; no need to log anything.
+           }
+           done();
+       })
+    })
+    before(function (done) {
+       db.createConstraint({
+           label: 'User',
+           property: 'username',
+       }, function (err, constraint) {
+           if (err) throw err;     // Failing fast for now, by crash the application.
+           if (constraint) {
+           } else {
+               // Constraint already present; no need to log anything.
+           }
+           done();
+       })
+    })
 
     // Single user CRUD:
 
