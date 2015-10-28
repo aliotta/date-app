@@ -13,6 +13,7 @@ angular.module('dateworthy.ideas', [])
   $scope.currentIdea = 0;
 
 
+
   $scope.nextIdea= function(){
     $scope.currentIdea++;
   };
