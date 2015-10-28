@@ -119,6 +119,7 @@ describe('Event models:', function () {
            label: 'Tag',
            property: 'tagname',
        }, function (err, constraint) {
+            console.log("error 03940329402390492304930940", err)
            if (err) throw err;     // Failing fast for now, by crash the application.
            if (constraint) {
            } else {
