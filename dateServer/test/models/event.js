@@ -117,7 +117,7 @@ describe('Event models:', function () {
 
     it('List initial events', function (next) {
         this.timeout = 5000;
-        setTimeout(done, 5000);
+        setTimeout(next, 5000);
         Event.getAll(function (err, events) {
             console.log(err, "ERROR")
             if (err) return next(err);
@@ -134,7 +134,7 @@ describe('Event models:', function () {
 
     it('Create event A', function (next) {
         this.timeout = 5000;
-        setTimeout(done, 5000);
+        setTimeout(next, 5000);
         var eventname = 'testEventA';
         Event.create({eventname: eventname}, function (err, event) {
             console.log("WHat is goin on")
