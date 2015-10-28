@@ -128,19 +128,20 @@ describe('Event models:', function () {
     //        done();
     //    })
     // })
-    before(function (done) {
-       db.createConstraint({
-           label: 'Event',
-           property: 'eventname',
-       }, function (err, constraint) {
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'Event',
+    //        property: 'eventname',
+    //    }, function (err, constraint) {
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //             console.log('(Registered unique eventnames constraint.)');
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
     before(function (done) {
        db.createConstraint({
            label: 'User',
@@ -148,6 +149,7 @@ describe('Event models:', function () {
        }, function (err, constraint) {
            if (err) throw err;     // Failing fast for now, by crash the application.
            if (constraint) {
+            console.log('(Registered unique usernames2 constraint.)');
            } else {
                // Constraint already present; no need to log anything.
            }

@@ -266,7 +266,7 @@ db.createConstraint({
     label: 'Tag',
     property: 'tagname',
 }, function (err, constraint) {
-
+    console.log('(Trying to Register unique tagnames constraint.)', err);
     if (err) throw err;     // Failing fast for now, by crash the application.
     if (constraint) {
         console.log('(Registered unique tagnames constraint.)');
