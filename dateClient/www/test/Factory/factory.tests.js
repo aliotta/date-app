@@ -15,6 +15,7 @@ describe('Factory Unit Tests', function(){
   }));
 
 
+
   beforeEach(module(function ($provide) {
     $provide.value('$cordovaGeolocation', {
         someVariable: 1

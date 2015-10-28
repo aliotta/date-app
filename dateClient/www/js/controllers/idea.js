@@ -31,6 +31,7 @@ angular.module('dateworthy.idea', ['ngOpenFB', 'ngCordova'])
   });
 
 
+
   $scope.like = function() {
     $scope.ideas[currentIdea].liked = 1;
     $scope.ideas[currentIdea].disliked = 0;
@@ -57,8 +58,6 @@ angular.module('dateworthy.idea', ['ngOpenFB', 'ngCordova'])
     $ionicHistory.goBack();
   };
 
-  // MAPS INTEGRATION 
-  
 
 });
 
