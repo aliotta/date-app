@@ -114,20 +114,7 @@ function expectEventnameTakenValidationError(err, eventname) {
 
 describe('Event models:', function () {
 
-    // before(function (done) {
-    //    db.createConstraint({
-    //        label: 'Tag',
-    //        property: 'tagname',
-    //    }, function (err, constraint) {
-    //         console.log("error 03940329402390492304930940", err)
-    //        if (err) throw err;     // Failing fast for now, by crash the application.
-    //        if (constraint) {
-    //        } else {
-    //            // Constraint already present; no need to log anything.
-    //        }
-    //        done();
-    //    })
-    // })
+    
     before(function (done) {
        db.createConstraint({
            label: 'Event',
@@ -142,23 +129,11 @@ describe('Event models:', function () {
            done();
        })
     })
-    // before(function (done) {
-    //    db.createConstraint({
-    //        label: 'User',
-    //        property: 'username',
-    //    }, function (err, constraint) {
-    //        if (err) throw err;     // Failing fast for now, by crash the application.
-    //        if (constraint) {
-    //         console.log('(Registered unique usernames2 constraint.)');
-    //        } else {
-    //            // Constraint already present; no need to log anything.
-    //        }
-    //        done();
-    //    })
-    // })
-    // Single event CRUD:
+    
 
     it('List initial events', function (next) {
+        this.timeout = 5000
+        thie.setTimeout(next, 5000);
         Event.getAll(function (err, events) {
             console.log(err, "ERROR")
             if (err) return next(err);
