@@ -3,7 +3,7 @@ language: javascript
 
 language: node_js
 node_js:
-  - "4.2"
+  - "4.2.1"
 
 jdk:
   - oraclejdk7
