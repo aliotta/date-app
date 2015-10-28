@@ -231,6 +231,7 @@ describe('User models:', function () {
            label: 'User',
            property: 'username',
        }, function (err, constraint) {
+            console.log('Registering username constrain in test')
            if (err) throw err;     // Failing fast for now, by crash the application.
            if (constraint) {
            } else {
