@@ -2,6 +2,7 @@ angular.module('dateworthy.ideas', [])
 .controller('IdeasCtrl', function($scope, $timeout, $location, DateData, LikeADate) {
 
   $scope.ideas = DateData.getDateIdeas();
+
   // Wrapping the `DateData.getDateIdeas` function call inside a $scope.on('$stateChangeSuccess') listener.
   // $stateChangeSuccess - fired once the state transition is complete (https://github.com/angular-ui/ui-router/wiki)
   $scope.$on('$stateChangeSuccess', function() {
