@@ -19,6 +19,11 @@ Tag.VALIDATION_INFO = {
   },
 };
 
+function isConstraintViolation(err) {
+  return err instanceof neo4j.ClientError &&
+    err.neo4j.code === 'Neo.ClientError.Schema.ConstraintViolation';
+}
+
 Object.defineProperty(Tag.prototype, 'tagname', {
     get: function () { return this._node.properties['tagname']; }
 });
@@ -257,20 +262,17 @@ function validateProp(prop, val, required) {
   }
 }
 
-function isConstraintViolation(err) {
-  return err instanceof neo4j.ClientError &&
-    err.neo4j.code === 'Neo.ClientError.Schema.ConstraintViolation';
-}
 
-db.createConstraint({
-    label: 'Tag',
-    property: 'tagname',
-}, function (err, constraint) {
-    console.log('(Trying to Register unique tagnames constraint.)', err);
-    if (err) throw err;     // Failing fast for now, by crash the application.
-    if (constraint) {
-        console.log('(Registered unique tagnames constraint.)');
-    } else {
-        // Constraint already present; no need to log anything.
-    }
-})
+
+// db.createConstraint({
+//     label: 'Tag',
+//     property: 'tagname',
+// }, function (err, constraint) {
+//     console.log('(Trying to Register unique tagnames constraint.)', err);
+//     if (err) throw err;     // Failing fast for now, by crash the application.
+//     if (constraint) {
+//         console.log('(Registered unique tagnames constraint.)');
+//     } else {
+//         // Constraint already present; no need to log anything.
+//     }
+// })
