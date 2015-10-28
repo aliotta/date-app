@@ -28,6 +28,7 @@ Object.defineProperty(Tag.prototype, 'tagname', {
  */
 Tag.get = function (tagname, callback) {
     var query = [
+        'CREATE CONSTRAINT ON (tag:Tag) ASSERT tag.tagname IS UNIQUE',
         'MATCH (tag:Tag {tagname: {tagname}})',
         'RETURN tag',
     ].join('\n')
@@ -52,6 +53,7 @@ Tag.get = function (tagname, callback) {
 
 Tag.getAll = function (callback) {
   var query = [
+    'CREATE CONSTRAINT ON (tag:Tag) ASSERT tag.tagname IS UNIQUE',
     'MATCH (tag:Tag)',
     'RETURN tag',
   ].join('\n');
@@ -72,6 +74,7 @@ Tag.getAll = function (callback) {
  */
 Tag.create = function (props, callback) {
     var query = [
+        'CREATE CONSTRAINT ON (tag:Tag) ASSERT tag.tagname IS UNIQUE',
         'CREATE (tag:Tag {props})',
         'RETURN tag',
     ].join('\n');
@@ -262,14 +265,15 @@ function isConstraintViolation(err) {
     err.neo4j.code === 'Neo.ClientError.Schema.ConstraintViolation';
 }
 
-db.createConstraint({
-    label: 'Tag',
-    property: 'tagname',
-}, function (err, constraint) {
-    if (err) throw err;     // Failing fast for now, by crash the application.
-    if (constraint) {
-        console.log('(Registered unique tagnames constraint.)');
-    } else {
-        // Constraint already present; no need to log anything.
-    }
-})
+// db.createConstraint({
+//     label: 'Tag',
+//     property: 'tagname',
+// }, function (err, constraint) {
+
+//     if (err) throw err;     // Failing fast for now, by crash the application.
+//     if (constraint) {
+//         console.log('(Registered unique tagnames constraint.)');
+//     } else {
+//         // Constraint already present; no need to log anything.
+//     }
+// })
