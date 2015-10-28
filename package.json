@@ -20,6 +20,7 @@
     "seed": "node dateServer/data-helpers/seedAll.js"
   },
   "dependencies": {
-    "bower": "^1.6.3"
+    "bower": "^1.6.3",
+    "mocha": "^2.3.3"
   }
 }
