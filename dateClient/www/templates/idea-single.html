@@ -14,9 +14,15 @@
       <div class="item item-text-wrap date-details">
         <!-- <p>{{idea.location}}</p> -->
         <h3>{{idea.name}}</h3>
+<<<<<<< HEAD
         <p class="category" ng-if="idea.categories">
           <span ng-repeat="category in idea.categories">
             {{ category.name }}{{$last ? '' : ' &bull;'}}
+=======
+        <p class="address" ng-if="idea.location.formattedAddress">
+          <span ng-repeat="line in idea.location.formattedAddress">
+            {{ line }}
+>>>>>>> (fix) Updated Date Idea view to use formattedAddress property from FS data
           </span>
         </p>
         <p class="address" ng-if="idea.location.formattedAddress">
