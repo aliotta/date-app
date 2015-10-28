@@ -117,6 +117,7 @@ describe('Event models:', function () {
 
     it('List initial events', function (next) {
         Event.getAll(function (err, events) {
+            console.log(err, "ERROR")
             if (err) return next(err);
 
             expect(events).to.be.an('array');
