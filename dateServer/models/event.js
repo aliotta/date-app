@@ -101,32 +101,6 @@ function isConstraintViolation(err) {
     err.neo4j.code === 'Neo.ClientError.Schema.ConstraintViolation';
 }
 
-Event.createConstraint = function(){
-  
-
-  var query = [
-    'CREATE CONSTRAINT ON (event:Event)',
-    'ASSERT event.eventname IS UNIQUE',
-  ].join('\n')
-
-  var params = {
-      eventname: eventname
-  };
-
-  db.cypher({
-      query: query,
-      params: params,
-  }, function (err, results) {
-      if (err) return callback(err);
-      if (!results.length) {
-          err = new Error('No such event with eventname: ' + eventname);
-          return callback(err);
-      }
-      var event = new Event(results[0]['event']);
-      callback(null, event);
-  });
-}
-
 // Helper function to check that Event exists
 Event.get = function (eventname, callback) {
     var query = [
