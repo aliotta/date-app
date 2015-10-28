@@ -27,6 +27,6 @@
   },
   "scripts": {
     "seed": "node data-helpers/seedAll.js",
-    "start": "node-dev app.js"
+    "start": "node-dev app.js" 
   }
 }
