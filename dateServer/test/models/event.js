@@ -133,6 +133,7 @@ describe('Event models:', function () {
     it('Create event A', function (next) {
         var eventname = 'testEventA';
         Event.create({eventname: eventname}, function (err, event) {
+            console.log("WHat is goin on")
             if (err) return next(err);
 
             expectEvent(event);
