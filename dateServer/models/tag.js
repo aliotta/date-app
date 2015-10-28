@@ -86,7 +86,7 @@ Tag.create = function (props, callback) {
     }, function (err, results) {
 
         if (isConstraintViolation(err)) {
-            // TODO: This assumes username is the only relevant constraint.
+            // TODO: This assumes tagname is the only relevant constraint.
             // We could parse the constraint property out of the error message,
             // but it'd be nicer if Neo4j returned this data semantically.
             // Alternately, we could tweak our query to explicitly check first
