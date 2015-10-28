@@ -114,20 +114,20 @@ function expectEventnameTakenValidationError(err, eventname) {
 
 describe('Event models:', function () {
 
-    before(function (done) {
-       db.createConstraint({
-           label: 'Tag',
-           property: 'tagname',
-       }, function (err, constraint) {
-            console.log("error 03940329402390492304930940", err)
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'Tag',
+    //        property: 'tagname',
+    //    }, function (err, constraint) {
+    //         console.log("error 03940329402390492304930940", err)
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
     before(function (done) {
        db.createConstraint({
            label: 'Event',
