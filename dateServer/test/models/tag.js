@@ -99,32 +99,7 @@ describe('Tag models:', function () {
            done();
        })
     })
-    // before(function (done) {
-    //    db.createConstraint({
-    //        label: 'Event',
-    //        property: 'eventname',
-    //    }, function (err, constraint) {
-    //        if (err) throw err;     // Failing fast for now, by crash the application.
-    //        if (constraint) {
-    //        } else {
-    //            // Constraint already present; no need to log anything.
-    //        }
-    //        done();
-    //    })
-    // })
-    // before(function (done) {
-    //    db.createConstraint({
-    //        label: 'User',
-    //        property: 'username',
-    //    }, function (err, constraint) {
-    //        if (err) throw err;     // Failing fast for now, by crash the application.
-    //        if (constraint) {
-    //        } else {
-    //            // Constraint already present; no need to log anything.
-    //        }
-    //        done();
-    //    })
-    // })
+    
     // Single tag CRUD:
 
     it('List initial tags', function (next) {
