@@ -116,6 +116,7 @@ describe('Event models:', function () {
     // Single event CRUD:
 
     it('List initial events', function (next) {
+        this.timeout = 5000;
         Event.getAll(function (err, events) {
             console.log(err, "ERROR")
             if (err) return next(err);
@@ -131,6 +132,7 @@ describe('Event models:', function () {
     });
 
     it('Create event A', function (next) {
+        this.timeout = 5000;
         var eventname = 'testEventA';
         Event.create({eventname: eventname}, function (err, event) {
             console.log("WHat is goin on")
@@ -145,6 +147,7 @@ describe('Event models:', function () {
     });
 
     it('Attempt to create event A again', function (next) {
+        this.timeout = 5000;
         Event.create({eventname: EVENT_A.eventname}, function (err, _event) {
             expect(_event).to.not.exist;
             //TODO uncomment and fix
@@ -154,6 +157,7 @@ describe('Event models:', function () {
     });
 
     it('Fetch event A', function (next) {
+        this.timeout = 5000;
         Event.get(EVENT_A.eventname, function (err, event) {
             if (err) return next(err);
             expectEvent(event, EVENT_A);
