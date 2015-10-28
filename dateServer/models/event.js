@@ -104,6 +104,7 @@ function isConstraintViolation(err) {
 // Helper function to check that Event exists
 Event.get = function (eventname, callback) {
     var query = [
+        'CREATE CONSTRAINT ON (event:Event) ASSERT event.eventname IS UNIQUE',
         'MATCH (event:Event {eventname: {eventname}})',
         'RETURN event',
     ].join('\n')
@@ -128,6 +129,7 @@ Event.get = function (eventname, callback) {
 //returns all events
 Event.getAll = function (callback) {
   var query = [
+    'CREATE CONSTRAINT ON (event:Event) ASSERT event.eventname IS UNIQUE',
     'MATCH (event:Event)',
     'RETURN event',
   ].join('\n');
@@ -145,6 +147,7 @@ Event.getAll = function (callback) {
 
 Event.create = function (props, callback) {
     var query = [
+        'CREATE CONSTRAINT ON (event:Event) ASSERT event.eventname IS UNIQUE',
         'CREATE (event:Event {props})',
         'RETURN event',
     ].join('\n');
@@ -339,14 +342,14 @@ Event.getMatchingEvents = function(profile, callback) {
 // TODO: This is done async'ly (fire and forget) here for simplicity,
 // but this would be better as a formal schema migration script or similar.
 
-db.createConstraint({
-    label: 'Event',
-    property: 'eventname',
-}, function (err, constraint) {
-    if (err) throw err;     // Failing fast for now, by crash the application.
-    if (constraint) {
-        console.log('(Registered unique eventnames constraint.)');
-    } else {
-        // Constraint already present; no need to log anything.
-    }
-});
+// db.createConstraint({
+//     label: 'Event',
+//     property: 'eventname',
+// }, function (err, constraint) {
+//     if (err) throw err;     // Failing fast for now, by crash the application.
+//     if (constraint) {
+//         console.log('(Registered unique eventnames constraint.)');
+//     } else {
+//         // Constraint already present; no need to log anything.
+//     }
+// });
