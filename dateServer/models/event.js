@@ -338,6 +338,7 @@ Event.getMatchingEvents = function(profile, callback) {
 // Register our unique eventname constraint.
 // TODO: This is done async'ly (fire and forget) here for simplicity,
 // but this would be better as a formal schema migration script or similar.
+
 db.createConstraint({
     label: 'Event',
     property: 'eventname',
