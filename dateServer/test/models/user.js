@@ -499,11 +499,11 @@ describe('User models:', function () {
         });
     });
 
-    it('Have user B tag tag A again', function (next) {
-        USER_B.tag(TAG_A, function (err) {
-            return next(err);
-        });
-    });
+    // it('Have user B tag tag A again', function (next) {
+    //     USER_B.tag(TAG_A, function (err) {
+    //         return next(err);
+    //     });
+    // });
 
     it('Fetch user B’s “tags”', function (next) {
         expectUserToTag(USER_B, [1], next);
