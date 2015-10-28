@@ -366,6 +366,7 @@ db.createConstraint({
     label: 'Event',
     property: 'eventname',
 }, function (err, constraint) {
+    console.log('(Trying to Register unique eventnames constraint.)', err);
     if (err) throw err;     // Failing fast for now, by crash the application.
     if (constraint) {
         console.log('(Registered unique eventnames constraint.)');

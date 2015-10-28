@@ -86,32 +86,32 @@ function expectTagnameTakenValidationError(err, tagname) {
 // Tests:
 
 describe('Tag models:', function () {
-    before(function (done) {
-       db.createConstraint({
-           label: 'Tag',
-           property: 'tagname',
-       }, function (err, constraint) {
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
-    before(function (done) {
-       db.createConstraint({
-           label: 'Event',
-           property: 'eventname',
-       }, function (err, constraint) {
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'Tag',
+    //        property: 'tagname',
+    //    }, function (err, constraint) {
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'Event',
+    //        property: 'eventname',
+    //    }, function (err, constraint) {
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
     before(function (done) {
        db.createConstraint({
            label: 'User',
