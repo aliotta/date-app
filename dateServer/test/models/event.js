@@ -142,20 +142,20 @@ describe('Event models:', function () {
            done();
        })
     })
-    before(function (done) {
-       db.createConstraint({
-           label: 'User',
-           property: 'username',
-       }, function (err, constraint) {
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-            console.log('(Registered unique usernames2 constraint.)');
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'User',
+    //        property: 'username',
+    //    }, function (err, constraint) {
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //         console.log('(Registered unique usernames2 constraint.)');
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
     // Single event CRUD:
 
     it('List initial events', function (next) {
