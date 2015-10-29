@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var errors = require('../../models/errors');
 var Event = require('../../models/event');
 var Tag = require('../../models/tag');
+var db = require('../../models/db');
 
 // Shared state:
 
@@ -18,6 +19,21 @@ describe('Event recommendations with tag inputs:', function () {
   var tagA = {tagname: 'eventTagA'};
   var tagB = {tagname: 'eventTagB'};
   var tagC = {tagname: 'eventTagC'};
+
+  before(function (done) {
+     db.createConstraint({
+         label: 'Event',
+         property: 'eventname',
+     }, function (err, constraint) {
+         if (err) throw err;     // Failing fast for now, by crash the application.
+         if (constraint) {
+              console.log('(Registered unique eventnames constraint.)');
+         } else {
+             // Constraint already present; no need to log anything.
+         }
+         done();
+     })
+  })
 
   beforeEach(function (done) {
     Event.create(eventA, function (err, event) {
