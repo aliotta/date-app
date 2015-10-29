@@ -1,7 +1,6 @@
 angular.module('dateworthy.idea', ['ngOpenFB', 'ngCordova'])
 
 .controller('IdeaCtrl', function($location, $ionicHistory, $q, $ionicLoading, $scope, $stateParams, DateData, LikeADate) {
-
   $scope.initMap = function(latitude, longitude, name){
     console.log("Initiating Map...", latitude, longitude);
     var myLatlng = new google.maps.LatLng(latitude, longitude);

@@ -1,7 +1,7 @@
 angular.module('dateworthy.ideas', [])
 .controller('IdeasCtrl', function($scope, $timeout, $location, DateData, LikeADate) {
 
-  $scope.ideas = DateData.getDateIdeas();
+  $scope.ideas = {};
 
 
   // Wrapping the `DateData.getDateIdeas` function call inside a $scope.on('$stateChangeSuccess') listener.
