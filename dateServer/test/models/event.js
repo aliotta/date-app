@@ -1,8 +1,9 @@
 var expect = require('chai').expect;
 
 var errors = require('../../models/errors');
-var Event = require('../../models/event');
+//var User = require('../../models/user');
 var Tag = require('../../models/tag');
+var Event = require('../../models/event');
 var db = require('../../models/db');
 
 // Shared state:
@@ -115,24 +116,25 @@ function expectEventnameTakenValidationError(err, eventname) {
 describe('Event models:', function () {
 
     
-    before(function (done) {
-       db.createConstraint({
-           label: 'Event',
-           property: 'eventname',
-       }, function (err, constraint) {
-           if (err) throw err;     // Failing fast for now, by crash the application.
-           if (constraint) {
-                console.log('(Registered unique eventnames constraint.)');
-           } else {
-               // Constraint already present; no need to log anything.
-           }
-           done();
-       })
-    })
+    // before(function (done) {
+    //    db.createConstraint({
+    //        label: 'User',
+    //        property: 'username',
+    //    }, function (err, constraint) {
+    //        if (err) throw err;     // Failing fast for now, by crash the application.
+    //        if (constraint) {
+    //             console.log('(Registered unique eventnames constraint.)');
+    //        } else {
+    //            // Constraint already present; no need to log anything.
+    //        }
+    //        done();
+    //    })
+    // })
     
 
     it('List initial events', function (next) {
-        this.timeout = 5000
+        this.timeout = 5000;
+        setTimeout(next, 5000);
         Event.getAll(function (err, events) {
             console.log(err, "ERROR")
             if (err) return next(err);
