@@ -201,20 +201,6 @@ function expectUsernameTakenValidationError(err, username) {
 
 describe('User models:', function () {
 
-    // before(function (done) {
-    //    db.createConstraint({
-    //        label: 'User',
-    //        property: 'username',
-    //    }, function (err, constraint) {
-    //         console.log('Registering username constrain in test')
-    //        if (err) throw err;     // Failing fast for now, by crash the application.
-    //        if (constraint) {
-    //        } else {
-    //            // Constraint already present; no need to log anything.
-    //        }
-    //        done();
-    //    })
-    // })
 
     // Single user CRUD:
 
