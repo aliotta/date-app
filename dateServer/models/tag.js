@@ -1,6 +1,8 @@
 var neo4j = require('neo4j');
 var errors = require('./errors');
 var db = require('./db');
+require('./constraints');
+
 
 /**
  * Tag Model
@@ -264,15 +266,4 @@ function validateProp(prop, val, required) {
 
 
 
-// db.createConstraint({
-//     label: 'Tag',
-//     property: 'tagname',
-// }, function (err, constraint) {
-//     console.log('(Trying to Register unique tagnames constraint.)', err);
-//     if (err) throw err;     // Failing fast for now, by crash the application.
-//     if (constraint) {
-//         console.log('(Registered unique tagnames constraint.)');
-//     } else {
-//         // Constraint already present; no need to log anything.
-//     }
-// })
+
