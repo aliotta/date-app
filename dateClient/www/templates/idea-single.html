@@ -17,14 +17,6 @@
         <p class="category" ng-if="idea.categories">
           <span ng-repeat="category in idea.categories">
             {{ category.name }}{{$last ? '' : ' &bull;'}}
-        <p class="category" ng-if="idea.categories">
-          <span ng-repeat="category in idea.categories">
-            {{ category.name }}{{$last ? '' : ' &bull;'}}
-          </span>
-        </p>
-        <p class="address" ng-if="idea.location.formattedAddress">
-          <span ng-repeat="line in idea.location.formattedAddress">
-            {{ line }}
           </span>
         </p>
         <p class="address" ng-if="idea.location.formattedAddress">
