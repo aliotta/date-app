@@ -74,7 +74,7 @@ angular.module('dateworthy.findadate', [])
       var center = $scope.map.getCenter();
       var lat = center.lat();
       var lng = center.lng();
-      DateData.setGeoLocation(lat, lng)
+      DateData.setGeoLocation(lat, lng);
 
       for (prop in $scope.currentTags) {
         tag = $scope.currentTags[prop]
