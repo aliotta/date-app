@@ -1,7 +1,20 @@
-
+var sequelize;
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('dateWorthy', 'root', '', { logging: false });
+if (process.env.CLEARDB_DATABASE_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL, {
+      dialect:  'mysql',
+      protocol: 'mysql',
+      port:     match[4],
+      host:     match[3],
+      logging:  true //false
+    })
+  } else {
+    // the application is executed on the local machine ... use mysql
+    sequelize = new Sequelize('dateWorthy', 'root', '', { logging: false });
+  }
+
 
 module.exports.sequelize = sequelize;
 
