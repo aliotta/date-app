@@ -5,6 +5,8 @@ var errors = require('./errors');
 var Tag = require('./tag');
 var Event = require('./event');
 var db = require('./db');
+var Promise = require('bluebird');
+
 require('./constraints');
 
 /** TABLE OF CONTENTS:
