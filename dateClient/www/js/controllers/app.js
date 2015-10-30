@@ -9,6 +9,7 @@ angular.module('dateworthy.app', ['ngOpenFB', 'ngCordova'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+
   //------------------------------------------------------------//
   // FACEBOOK LOGIN!
   //------------------------------------------------------------//
