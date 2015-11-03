@@ -124,9 +124,11 @@ angular.module('dateworthy.findadate', [])
     if(nextQuestionId === $scope.mandatoryQuestions.length){
       $scope.showSpinner = true;
       console.log("Doing stuff now!");
+
       FindADate.sendDateData(DateData.getConcatenatedData(), function(data){
         console.log("Data sent to the server: ", DateData.getConcatenatedData());
         DateData.setDateIdeas(data);
+        $scope.showSpinner = false;
         $state.go('idea', {ideaId: 0});
         $scope.loadState();
       });
