@@ -153,6 +153,7 @@ angular.module('dateworthy.findadate', [])
     }
     var map = new google.maps.Map(document.getElementById('map'), {
       draggable: false,
+      scrollwheel: false,
       center: {lat: latitude || 37.8044, lng: longitude || -122.2708},
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP
