@@ -13,7 +13,7 @@ angular.module('dateworthy', [
   'dateworthy.services'
 ])
 
-.run(function($ionicPlatform, $rootScope, $state, $location, ngFB) {
+.run(['$ionicPlatform', '$rootScope', '$state', '$location', 'ngFB',function($ionicPlatform, $rootScope, $state, $location, ngFB) {
   ngFB.init({appId: '996902650371971'});
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -39,13 +39,11 @@ angular.module('dateworthy', [
         if(response.status !== "connected"){
           console.log("User is not logged in.");
           $state.go('login');
-        } else {
-          
         }
       })
     });
   });
-})
+}])
 
 
 //New routers will be the following:
@@ -59,7 +57,7 @@ angular.module('dateworthy', [
 // - /likes
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('login', {
     url: '/login/',
@@ -88,5 +86,5 @@ angular.module('dateworthy', [
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');
-});
+}]);
 
