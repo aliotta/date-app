@@ -17,7 +17,9 @@
     "postinstall": "bower install",
     "start": "node dateServer/app.js",
     "test": "gulp test & mocha dateServer/test/*/*.js --timeout 5000",
-    "seedLocal": "node dateServer/data-helpers/seedAllLocal.js"
+    "seedLocal": "node dateServer/data-helpers/seedAllLocal.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "bower": "^1.6.3",
@@ -27,7 +29,8 @@
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "mocha": "^2.3.3",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "gulp-concat": "^2.6.0",
@@ -36,5 +39,6 @@
     "gulp-rimraf": "^0.2.0",
     "gulp-uglify": "^1.4.2",
     "gulp-usemin": "^0.3.15"
-  }
+  },
+  "snyk": true
 }
