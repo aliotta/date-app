@@ -19,7 +19,8 @@
     "sequelize-mysql": "^1.7.0",
     "serve-favicon": "^2.3.0",
     "ua-parser-js": "^0.7.9",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "chai": "^1.8",
@@ -33,6 +34,9 @@
     "seed": "node data-helpers/seedAll.js",
     "postinstall": "bower install",
     "start": "node-dev app.js",
-    "test": "mocha test/*/*.js"
-  }
+    "test": "mocha test/*/*.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
