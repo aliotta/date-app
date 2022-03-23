@@ -26,8 +26,8 @@
     "jasmine-core": "^2.3.4",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
-    "mocha": "^2.3.3",
-    "phantomjs": "^1.9.18"
+    "mocha": "^6.2.3",
+    "phantomjs": "^2.1.1"
   },
   "devDependencies": {
     "gulp-concat": "^2.6.0",
